@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS `db_blog_novembre` 
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-use db_blog_docker;
+use db_blog_novembre;
 
 CREATE TABLE IF NOT EXISTS `users` (
 	`user_id` INT NOT NULL AUTO_INCREMENT,
