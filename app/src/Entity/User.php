@@ -8,13 +8,10 @@ use App\Interfaces\UserInterface;
 class User extends BaseEntity implements UserInterface, PasswordProtectedInterface
 {
     private ?int $id;
-    private string $username;
+    private string $pseudo;
     private string $password;
     private string $email;
-    private string $firstName;
-    private string $lastName;
-    private ?string $gender;
-    private array $roles = [];
+    private array $admin = false;
 
     /**
      * @return int
@@ -37,18 +34,18 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
     /**
      * @return string
      */
-    public function getUsername(): string
+    public function getPseudo(): string
     {
-        return $this->username;
+        return $this->pseudo;
     }
 
     /**
-     * @param string $username
+     * @param string $pseudo
      * @return User
      */
-    public function setUsername(string $username): User
+    public function setPseudo(string $pseudo): User
     {
-        $this->username = $username;
+        $this->pseudo = $pseudo;
         return $this;
     }
 
@@ -71,76 +68,21 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
     }
 
     /**
-     * @return string
+     * @return bool
      */
-    public function getFirstName(): string
+    public function getAdmin(): bool
     {
-        return $this->firstName;
+        $admin = $this->admin;
+        return $admin;
     }
 
     /**
-     * @param string $firstName
+     * @param bool $admin
      * @return User
      */
-    public function setFirstName(string $firstName): User
+    public function setAdmin(bool $admin): User
     {
-        $this->firstName = $firstName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param string $lastName
-     * @return User
-     */
-    public function setLastName(string $lastName): User
-    {
-        $this->lastName = $lastName;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGender(): string
-    {
-        return $this->gender;
-    }
-
-    /**
-     * @param string $gender
-     * @return User
-     */
-    public function setGender(string $gender): User
-    {
-        $this->gender = $gender;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        $roles[] = "ROLE_USER";
-        return $roles;
-    }
-
-    /**
-     * @param array $roles
-     * @return User
-     */
-    public function setRoles(array $roles): User
-    {
-        $this->roles = $roles;
+        $this->admin = $admin;
         return $this;
     }
 
