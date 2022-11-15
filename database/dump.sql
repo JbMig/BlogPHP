@@ -20,3 +20,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
 	PRIMARY KEY (`article_id`),
 	CONSTRAINT FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `comments` (
+	`comment_id` INT NOT NULL AUTO_INCREMENT,
+	`content` TEXT,
+	`date` DATETIME DEFAULT CURRENT_TIMESTAMP,
+	`user_id` INT NOT NULL,
+	`previous_comment_id` INT NOT NULL,
+	PRIMARY KEY (`comment_id`),
+	CONSTRAINT FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`) ON DELETE CASCADE
+	CONSTRAINT FOREIGN KEY (`previous_comment_id`) REFERENCES `comments`(`comment_id`) ON DELETE CASCADE
+) ENGINE=InnoDB;
