@@ -13,7 +13,7 @@ session_start();
 <body>
 <?php
 // require "../database/pdo.php";
-$pdo = new PDO("mysql:host=database:3306;dbname=db_blog_docker", "root", "password");
+$pdo = new PDO("mysql:host=database:3306;dbname=db_blog_novembre", "root", "password");
 $query = $pdo->query("SELECT `email` FROM `users`");
 $users_emails = $query->fetchAll(PDO::FETCH_ASSOC);
 var_dump($users_emails);
