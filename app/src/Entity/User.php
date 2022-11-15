@@ -11,7 +11,7 @@ class User extends BaseEntity implements UserInterface, PasswordProtectedInterfa
     private string $pseudo;
     private string $password;
     private string $email;
-    private array $admin = false;
+    private bool $admin = false;
 
     /**
      * @return int
