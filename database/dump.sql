@@ -27,9 +27,9 @@ CREATE TABLE IF NOT EXISTS `comment` (
 	`date` DATETIME DEFAULT CURRENT_TIMESTAMP,
 	`user_id` INT NOT NULL,
 	`post_id` INT NOT NULL,
-	`previous_comment_id` INT NOT NULL,
+	`parent_comment_id` INT NOT NULL,
 	PRIMARY KEY (`id`),
 	CONSTRAINT FOREIGN KEY (`user_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
 	CONSTRAINT FOREIGN KEY (`post_id`) REFERENCES `post`(`id`) ON DELETE CASCADE
-	CONSTRAINT FOREIGN KEY (`previous_comment_id`) REFERENCES `comment`(`id`) ON DELETE CASCADE
+	CONSTRAINT FOREIGN KEY (`parent_comment_id`) REFERENCES `comment`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
