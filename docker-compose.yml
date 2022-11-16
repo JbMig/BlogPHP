@@ -10,7 +10,7 @@ services:
       - "8977:443"
     restart: unless-stopped
     volumes:
-      - ./src:/var/www/html
+      - ./app/src:/var/www/html
 
   database:
     image: mariadb
