@@ -5,15 +5,17 @@ session_start();
 // inscription
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $identifiant = filter_input(INPUT_POST, "identifiant");
+    $identifiant = filter_input(INPUT_POST, "email");
     $mdp =  filter_input(INPUT_POST, "password");
     $confirmMdp = filter_input(INPUT_POST, "confirmPassword");
 
  
     if ($mdp == $confirmMdp) {
-        $maRequete = $pdo->prepare("INSERT INTO `user` (`nickname`, `password`) VALUES(:identifiant ,:mdp);");
+        $maRequete = $pdo->prepare("INSERT INTO `user` (`nickname`, `password`, `email`) VALUES(:identifiant ,:mdp, :email);");
         $maRequete->execute([
             ":identifiant" => $identifiant,
-            ":mdp" => $mdp
+            ":mdp" => $mdp,
+            ":email" => $email
         ]);
 
         $user = $maRequete->fetch();
