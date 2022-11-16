@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo = new PDO("mysql:host=database:3306;dbname=db_blog","root","root");
+$pdo = new PDO("mysql:host=database:3306;dbname=db_blog_novembre","root","password");
 $user_id = $_SESSION["user"]["user_id"];
 $articles=[];
 
