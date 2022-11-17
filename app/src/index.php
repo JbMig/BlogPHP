@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$pdo = new PDO("mysql:host=database:3306;dbname=db_blog","root","root");
+$pdo = new PDO("mysql:host=database:3306;dbname=db_blog_novembre","root","password");
 // Connexion
 if (!isset($_SESSION["user"]["identifiant"])){
 
