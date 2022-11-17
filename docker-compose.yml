@@ -15,11 +15,11 @@ services:
   database:
     image: mariadb
     restart: always
-    volumes:
-      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
       MYSQL_DATABASE: db_blog_novembre
       MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 
 
 volumes:

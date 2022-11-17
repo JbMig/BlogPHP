@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-$pdo = new PDO("mysql:host=database:3306;dbname=db_blog","root","root");
+$pdo = new PDO("mysql:host=database:3306;dbname=db_blog_novembre","root","password");
 // Connexion
-if (!isset($_SESSION["user"]["identifiant"])){
+if (!isset($_SESSION["user"]["nickname"])){
 
     $identifiantLog = filter_input(INPUT_POST, "identifiantLog");
     $mdp = hash("sha512", filter_input(INPUT_POST, "mdpLog"));
     $messageLog = "";
     
     
-    $maRequete = $pdo->prepare("SELECT * FROM `users` WHERE `identifiant` = :identifiant;");
+    $maRequete = $pdo->prepare("SELECT * FROM `user` WHERE `nickname` = :identifiant;");
         $maRequete->execute([
             ":identifiant" => $identifiantLog
         ]);
